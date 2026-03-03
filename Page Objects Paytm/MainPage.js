@@ -16,6 +16,7 @@ class MainPage{
 
     }
 
+    //function to navigate
     async Goto(){
         await this.page.goto("https://paytm.com/");
     }
