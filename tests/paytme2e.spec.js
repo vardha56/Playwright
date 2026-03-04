@@ -1,9 +1,17 @@
 import {test, expect} from '@playwright/test';
 
-test("TC to navigate through Paytm site", async({page})=>{
+//const{MainPage} = require("D:\Playwright\Page Objects Paytm\MainPage.js");
+import MainPage from '../Page Objects Paytm/MainPage';
 
-    await page.goto("https://paytm.com/", {waitUntil:'domcontentloaded'});
+test("TC to navigate through Paytm site", async({browser})=>{
+
+    const context = await browser.newContext();
+    const page = await context.newPage();
+
+    const mainPage = new MainPage(page);
+
+    await mainPage.Goto();
     await page.pause();
-    await page.getByText("Payments & Services").click();
+
     
 })
