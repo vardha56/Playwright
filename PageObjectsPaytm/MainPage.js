@@ -19,6 +19,20 @@ class MainPage{
     //function to navigate
     async Goto(){
         await this.page.goto("https://paytm.com/");
+        console.log(await this.page.title());
+    }
+
+    async GotoMobRecharge(){
+        await this.recharge.hover();
+        await this.mobileRecharge.click();
+        console.log(await this.page.title());
+    }
+
+    async GotoPaymServc(){
+        await this.paymsAndServ.hover();
+        await this.paymnt.hover();
+        await this.Bpr.click();
+        console.log(await this.page.title());
     }
 }
 
