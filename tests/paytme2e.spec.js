@@ -3,7 +3,7 @@ import {test, expect} from '@playwright/test';
 //const{MainPage} = require("D:\Playwright\Page Objects Paytm\MainPage.js");
 import MainPage from '../PageObjectsPaytm/MainPage';
 
-test.only("TC to navigate through Paytm site", async({browser})=>{
+test("TC to navigate through Paytm site", async({browser})=>{
 
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -15,8 +15,6 @@ test.only("TC to navigate through Paytm site", async({browser})=>{
     await page.pause();
     await mainPage.GotoPaymServc();
     await page.pause();
-
-    await context.close();
 
     
 })
