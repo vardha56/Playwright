@@ -1,3 +1,5 @@
+import { TIMEOUT } from "node:dns";
+
 class DTHpage{
 
     constructor(page){
@@ -5,11 +7,23 @@ class DTHpage{
         this.link="https://paytm.com/";
         this.DTHbtn = page.locator("//span[text()='DTH Recharge']");
 
+        this.SelOpertr = page.locator("//label[text()='DTH Operator']");
+        this.TataPlay = page.locator("//span[text()='Tata Play (Formerly Tata Sky)']");
+        this.FillNmbr = page.locator("//label[text()='Mobile Number or Subscriber ID']");
+        this.ProceedBtn = page.locator("//button[@class='_11kC  _15qf _2qE6']");
+
     }
 
     async clickDTH(){
         await this.page.goto(this.link);
         await this.DTHbtn.click();
+    }
+
+    async SelectOperator(){
+        await this.SelOpertr.click();
+        await this.TataPlay.click();
+        await this.FillNmbr.fill("88888888");
+        await this.ProceedBtn.click();
     }
 }
 
