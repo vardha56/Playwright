@@ -9,7 +9,7 @@ test.only("Tc to navigate to DTH", async({browser})=>{
     const dthPage = new DTHpage(page);
 
     await dthPage.clickDTH();
-    await dthPage.SelectOperator();
+    //await dthPage.SelectOperator();
     await page.pause();
 
 })
