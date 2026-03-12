@@ -1,6 +1,6 @@
 1.What is Playwright?
-Playwright is an open-source automation testing tool developed by Microsoft.
-It is used to automate web browsers and test web applications automatically instead of testing them manually.
+Playwright is an open-source automation testing framework developed by Microsoft for end-to-end testing of web applications. 
+It supports multiple browsers like Chromium, Firefox, and WebKit and provides features like auto-waiting, parallel execution, and built-in locators, making UI automation reliable and fast.
 
 2. Why is Playwright used in Automation Testing?
 Playwright is used to check if a website or web app works correctly by simulating how a real user behaves.
