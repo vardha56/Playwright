@@ -13,7 +13,9 @@ class MainPage{
         //bills paymnt and recharges
         this.Bpr= page.locator("//a[@href='https://paytm.com/recharge-bill-payment']");
 
-
+        //UPI statement img
+        this.statmnt= page.locator("//img[@id='3179325']");
+        this.QR= page.locator("//img[@alt='Scan']");
     }
 
     //function to navigate
@@ -33,6 +35,13 @@ class MainPage{
         await this.paymnt.hover();
         await this.Bpr.click();
         console.log(await this.page.title());
+    }
+
+    async GotoUpiStat(){
+        await this.page.goto("https://paytm.com/");
+        await this.statmnt.click();
+        await this.page.pause();
+        await this.QR.click();
     }
 }
 

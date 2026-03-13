@@ -19,7 +19,7 @@ class DTHpage{
         await this.page.goto(this.link);
         //await this.DTHbtn.click();
     
-        await this.SelOpertr.click({timeout:60000})
+        await this.SelOpertr.click({force: true});
         await this.TataPlay.click();
         await this.FillNmbr.fill("88888888");
         await this.ProceedBtn.click();

@@ -12,8 +12,8 @@ test("TC to navigate through Paytm site", async({browser})=>{
 
     await mainPage.Goto();
     await mainPage.GotoMobRecharge();
-    await page.pause();
     await mainPage.GotoPaymServc();
+    await mainPage.GotoUpiStat();
     await page.pause();
 
     
