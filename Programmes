@@ -10,9 +10,7 @@ for(const ch of str){
 	}
 }
 console.log("Number of vowels in str are "+count)
-
 }
-
 countVowels("vardha");
 
 2. To find Longest Word
@@ -28,4 +26,6 @@ function longestWord(str){
 	console.log("Logest word is "+longest);
 }
 longestWord("Honey sigh is a rapper");
+
+
 
