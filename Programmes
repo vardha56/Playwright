@@ -1,5 +1,4 @@
 1. Prog to count number of vowels
-
 function countVowels(str){
 	let count=0;
 	const vowels="aeiouAEIOU";
@@ -14,7 +13,6 @@ console.log("Number of vowels in str are "+count)
 countVowels("vardha");
 
 2. To find Longest Word
-
 function longestWord(str){
 	let word=str.split(" ");
 	let longest="";
@@ -27,5 +25,13 @@ function longestWord(str){
 }
 longestWord("Honey sigh is a rapper");
 
-
+3. count how many times a letter is repeated
+function countCh(str,ch){
+	let count=0;
+	for(let i of str){
+	if(i==ch) count++;
+}
+console.log("Count of "+ch+" is "+count)
+}
+countCh("Yoyo is cool","o");
 
