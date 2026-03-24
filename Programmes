@@ -127,6 +127,26 @@ function highest(str){
 }
 console.log(highest("cool yoyo"));
 
+8. Replace "0" with "#"
+   //input : tomorrow
+   //output : t#m##rr###w
+
+function replaceStr(str){
+    let res="";
+    let count=0;
+    for(let i of str){
+        if(i=="o"){
+            count++;
+            res += "#".repeat(count);
+        }
+        else{
+            res += i;
+        }
+    }
+    return res;
+}
+console.log(replaceStr("yo cool"));
+
 
 
 
