@@ -1,19 +1,17 @@
 1.What is Playwright?
-Playwright is an open-source automation testing framework developed by Microsoft for end-to-end testing of web applications. 
-It supports multiple browsers like Chromium, Firefox, and WebKit and provides features like auto-waiting, parallel execution, and built-in locators, making UI automation reliable and fast.
+Playwright is an open-source automation testing framework developed by Microsoft for end-to-end testing of web applications. It supports 
+multiple browsers like Chromium, Firefox, and WebKit and provides features like auto-waiting, parallel execution, and built-in locators, 
+which makes UI automation reliable and fast.
 
 2. Why is Playwright used in Automation Testing?
-Playwright is used to check if a website or web app works correctly by simulating how a real user behaves.
-Here’s why teams use Playwright:
-can identify bugs in the early stages
-cross browser testing
-fast and smarter
-1. Automates user actions
-2. Cross-browser testing
-3. Fast and reliable tests
-4. Tests like a real user
-5. Easy debugging and parallel execution
-6. Works in CI/CD pipelines.
+Playwright is used in automation testing because it provides a fast, reliable and a modern way to test web applications across multiple browsers
+and because of it's features like auto-waiting, parallel execution and built-in locators.
+
+-if i have 1 testcase can we run that 1 tc in multiple workers as parallel execution ------> No
+because parallel execution means multiple tc is distributed among multiple workers(browsers)
+
+-Cross browser testing means same tcs running in different types of browsers where 
+parallel execution means same tcs running parallely in multiple browser.
 
 3.how is playwright different from selenium or cypress
 Playwright is faster and more reliable than Selenium because it has built-in waiting and direct browser control. Compared to Cypress,
