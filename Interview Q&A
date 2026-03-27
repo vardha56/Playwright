@@ -32,23 +32,25 @@ To set up Playwright, install Node.js and Visual Studio Code, and initialize a p
 config file, test folder, browsers instances and reporting. After that, I can write tests and run them using npx playwright test.
 
 5.what are locators in playwritgh..??
-Locators in Playwright are used to identify and interact with elements on a web page in a reliable and auto-waiting way.
+Locators in Playwright are used to identify and interact with the elements on a web page,
 elements like buttons, inputs, links, etc
 
 6.whats the diferene btwn page.click() and locator.click()
 page.click() clicks an element immediately and may fail if the element is not ready, 
 while locator.click() automatically waits, retries, and interacts reliably with dynamic elements.
 
+What happenes before a click?
+Before performing a click, Playwright ensures the element is attached to the DOM, visible, stable, enabled, and not covered by 
+another element. It also scrolls it into view if necessary. Only after these checks does it execute the click. This built-in auto-waiting 
+helps reduce flaky tests
+
 7.how does playwright handle waits automatically
 Playwright automatically waits for elements to be visible, enabled, and stable before interacting, and retries actions until conditions are met. 
 This eliminates the need for manual sleeps and reduces flaky tests.
 
 8.how do u handle dropdown and input fields
-In Playwright, input fields are handled using fill() and type(). For dropdowns, selectOption() is used for HTML select elements, 
-and click-based selection is used for custom dropdowns.
-Select by value
-Select by label
-Select by index
+Input fields are handled using fill() or type().
+For dropdowns, I use selectOption() for normal select tags, and for custom dropdowns, I handle them using click actions and locators.
 
 9 how do u take screenshots and record video in playwright
 In Playwright, screenshots are taken using page.screenshot() and videos are enabled in playwright.config.
