@@ -28,11 +28,12 @@ Dynamic elements (changing IDs, text, or data)
 Test dependency – one test depends on another
 
 4.how do u install playwright and setit up for a new project
-To install Playwright, install Node.js and Visual Studio Code, initialize a project using npm init playwright@latest, then run npx playwright test to execute tests. 
-Playwright automatically downloads browsers and sets up the configuration.
+To set up Playwright, install Node.js and Visual Studio Code, and initialize a playwright project using npx playwright init, which sets up the 
+config file, test folder, browsers instances and reporting. After that, I can write tests and run them using npx playwright test.
 
 5.what are locators in playwritgh..??
-Locators in Playwright are used to identify web elements so automated tests can interact with them, like clicking, typing, and verifying text.
+Locators in Playwright are used to identify and interact with elements on a web page in a reliable and auto-waiting way.
+elements like buttons, inputs, links, etc
 
 6.whats the diferene btwn page.click() and locator.click()
 page.click() clicks an element immediately and may fail if the element is not ready, 
