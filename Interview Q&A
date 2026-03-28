@@ -52,19 +52,20 @@ This eliminates the need for manual sleeps and reduces flaky tests.
 Input fields are handled using fill() or type().
 For dropdowns, I use selectOption() for normal select tags, and for custom dropdowns, I handle them using click actions and locators.
 
-9 how do u take screenshots and record video in playwright
+9 how do u take screenshots and record video in playwright?
 In Playwright, screenshots are taken using page.screenshot() and videos are enabled in playwright.config.
-js using the video option. Playwright also automatically captures screenshots and videos on test failure when configured.
+js file using the video option or by using recordVideo option in browser context.
 eg: 🔹 1. Take screenshot of full page-->await page.screenshot({ path: 'page.png' });
 🔹 2. Take screenshot of visible area-->await page.locator('#loginBtn').screenshot({ path: 'loginBtn.png' });
 🔹 3. Screenshot on test failure (Auto).module.exports = {
   use: {
     screenshot: 'only-on-failure',
+    video: 'on', // options: 'on', 'off', 'retain-on-failure', 'on-first-retry'
   }
 };
 
 10.how can u open multiple browser tabs or contexts------> need to be undrstd
-Tabs are created using context.newPage() and share session data, while contexts are created using browser.newContext() and 
+multiple Tabs are created using context.newPage() and share session data, while multiple contexts are created using browser.newContext() and 
 provide isolated browser sessions like incognito windows.
 
 11. whats the difference btwn page,browser and browsercontext
