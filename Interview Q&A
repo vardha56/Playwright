@@ -69,7 +69,8 @@ multiple Tabs are created using context.newPage() and share session data, while 
 provide isolated browser sessions like incognito windows.
 
 11. whats the difference btwn page,browser and browsercontext
-Browser is the main instance, BrowserContext is an isolated session like incognito, and Page is a single browser tab inside that session.
+Browser is the main instance, BrowserContext is an isolated session like incognito window, and Page is a single browser tab inside that session 
+where we perform actions.
     const context = await browser.newContext();
     const page = await context.newPage();
 
