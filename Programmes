@@ -147,6 +147,56 @@ function replaceStr(str){
 }
 console.log(replaceStr("yo cool"));
 
+9. Palindrome num
+function isPlaindrome(num){
+    let original = num;
+    let res = 0;
+    while (num>0){
+        let remind = num%10;
+        res = res*10+remind;
+        num = Math.floor(num/10);
+    }
+    
+    if(original===res){
+        console.log("Palindrome");
+    }
+    else{
+        console.log("Not Plaindrome");
+    }
+}
+isPlaindrome(121);
+
+10. Interchange
+function interchange(word){
+    let str = word.split(" ");
+    let temp = str[0];
+    str[0]=str[1];
+    str[1]=str[2];
+    str[2]=temp;
+    return str.join(" ");
+}
+console.log(interchange("yoyo is cool"));
+
+Or---------------->swap 1st and last
+function swap(word){
+    let str=word.split(" ");
+    let temp=str[0];
+    str[0]=str[str.length-1];
+    str[str.length-1]=temp;
+    return str.join(" ");
+}
+console.log(swap("yoyo is cool"));
+
+11. Two arrays equal and same elements
+function arrayEquals(a,b){
+    if(a.length !== b.length) return false;
+    for(let i=0; i<a.length; i++){
+        if(a[i] !== b[i]) return false;
+    }
+    return true;
+}
+console.log(arrayEquals([1,2,3],[1,2,3]));
+
 
 
 
