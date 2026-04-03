@@ -79,6 +79,45 @@ where we perform actions.
 In Playwright, JavaScript alerts are handled using the dialog event with accept or dismiss actions.
  Browser popups are managed using waitForEvent('page'), and permissions are controlled using browser context options.
 
+//Alert
+page.on('dialog', async dialog => {
+  await dialog.accept(); 
+  await dialog.dismiss();
+  await dialog.accept('cool');
+});
+
+//Popups
+const popupPromise = page.waitForEvent('popup');
+await page.getByText('Open New Window').click();
+const popup = await popupPromise;
+await popup.waitForLoadState();
+
+//permissions
+test('test with geolocation', async ({ browser }) => {
+  const context = await browser.newContext({
+    permissions: ['geolocation'], // Pre-grant the permission
+    geolocation: { latitude: 48.8584, longitude: 2.2945 }, // Set the coordinates
+    viewport: { width: 1280, height: 720 }
+  });
+
+  const page = await context.newPage();
+  await page.goto('https://google.com');
+  
+  // No "Allow location?" popup will appear!
+  await page.getByRole('button', { name: 'Show my location' }).click();
+  await context.close();
+});
+
+//general permissions
+import { defineConfig } from '@playwright/test';
+
+export default defineConfig({
+  use: {
+    permissions: ['notifications', 'geolocation', 'camera'],
+    // This ensures no permission popups interrupt your flow
+  },
+});
+
 13. how do u emulate mobile device or geolocation
 Playwright emulates mobile devices using predefined device descriptors like iPhone and Pixel, and sets geolocation using browser context configuration with latitude and longitude values.
 
