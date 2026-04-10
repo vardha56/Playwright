@@ -197,6 +197,26 @@ function arrayEquals(a,b){
 }
 console.log(arrayEquals([1,2,3],[1,2,3]));
 
+12. print 1 to 100 without loop
+function print(n){
+    if(n<=100){
+        console.log(n);
+        print(n+1);
+    }
+}
+print(1);
+
+13. Check If String Starts and Ends with Same Character
+function match(str){
+    if(str[0].toLowerCase()==str[str.length-1].toLowerCase()){
+        return true;
+    }
+    return false;
+}
+console.log(match("vardhaV"));
+
+14. 
+
 
 
 
