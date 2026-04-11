@@ -122,18 +122,26 @@ export default defineConfig({
 Playwright emulates mobile devices using predefined device descriptors like iPhone and Pixel, and sets geolocation using browser context configuration with latitude and longitude values.
 
 14. how do u handle different browser windows in playwright
-New browser windows are handled using context.waitForEvent('page'), and Playwright returns a Page object that allows switching and interacting with the new window.
+In Playwright, multiple browser windows are handled using multiple Page objects. 
+We use context.waitForEvent('page') to capture new windows and then perform actions using that page reference.
+
+const [newPage] = await Promise.all([
+  context.waitForEvent('page'), // wait for new window
+  page.click('a[target="_blank"]') // action that opens new window
+]);
+await newPage.waitForLoadState();
+console.log(await newPage.title());
 
 15. what command is used to generate playwright test automatically
-The npx playwright codegen command records user actions and generates Playwright automation scripts automatically.
+The "npx playwright codegen" is the command which records the user actions and generates Playwright tests automatically.
 
-16. How do you set up a Playwright project with TypeScript
-install node.js and vs code and create a folder npm init playwright@latest and automatically all playwright libraries and modules will be installed
+16. How do you set up a Playwright project with TypeScript -> duplicate question
+install nd vs code node.js aand create a folder npm init playwright@latest and automatically all playwright libraries and modules will be installed
 
 17.Explain the folder structure you prefer for Playwright tests
 I prefer a modular folder structure using Page Object Model.
-All tests inside tests/, all page classes inside pages/, reusable utilities under utils/, fixtures under fixtures/, and configurations under config/.
-This helps maintain test scalability, readability, and reusability.”
+All tests inside tests/, all page classes inside pages/, reusable utilities under utils/, and configurations under 
+config/. This helps maintain test scalability, readability, and reusability.”
 
 18 What is the benefit of using fixtures in Playwright test runner---------->need to read again
 “Fixtures in Playwright provide reusable, isolated test setup. They help avoid repeated code, maintain clean test structure, 
@@ -141,10 +149,9 @@ manage automatic setup and teardown, and ensure independent test execution. With
 and improve both speed and maintainability of the framework.”
 
 19. How do you handle environment-specific configs in Playwright
-I handle environment-specific configs in Playwright using multiple configuration files or environment variables.
+I handle environment-specific configs using multiple environment files.
 Each environment (dev/qa/stage/prod) has its own baseURL and credentials.
-I select the environment during test execution using --config or env variables.
-This keeps tests clean, scalable, and easily switchable between environments.”
+I select the environment files during test execution based on the specific environment.
 
 20 How do you wait for elements without using sleep
 I never use sleep() in Playwright.
