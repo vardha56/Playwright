@@ -159,13 +159,12 @@ Playwright has built-in auto-waiting, and I rely on smart waits like waitForSele
 These waits are stable, retry automatically, and prevent flaky tests.”	
 
 21. Explain the difference between locator and elementHandle
-“A Locator is Playwright’s modern, recommended way to find elements.
+A Locator is Playwright’s modern, recommended way to find elements.
 It auto-waits, re-finds the element every time, and prevents flaky tests.
-ElementHandle is a low-level reference to a DOM element, does not auto-wait, and may become stale.
-Locators should be used for all test interactions, while ElementHandle is used only for rare advanced operations.”
+ElementHandle is a low-level reference to a DOM element, does not auto-wait and may become Outdated.
 A locator does NOT store the element.
-It finds the element fresh every time before performing an action.
-An ElementHandle is like a direct pointer to an element (similar to Selenium’s WebElement).
+It finds the element freshly every time before performing an action.
+An ElementHandle is like a direct pointer to an DOM element.
 
 22. How do you handle multiple browser contexts in one test
 “To handle multiple browser contexts in one test, I create new contexts using browser.newContext().
@@ -173,12 +172,11 @@ Each context behaves like an independent browser with separate cookies and stora
 Inside each context, I create separate pages. This is commonly used for chat apps, admin vs user flows, or multi-user scenarios.
 
 23.8. How do you manage authentication flows (UI login)
-“I manage authentication in Playwright using the below approaches.
-For full end-to-end coverage, I automate UI login by filling the username/password and verifying navigation.
+I use the Playwright’s storage state to save authenticated sessions and reuse them across tests.
 
 23. which is the modren of locating an element in playwright
-“The modern way to locate elements in Playwright is using locator() with user-facing selectors like 
-getByRole, getByText, and getByTestId, instead of XPath or old DOM-based selectors.”
+“The modern way to locate elements in Playwright is using locator() with selectors like 
+getByRole, getByText, getByTestId, instead of XPath.
 
 24. 11. Difference between page.waitForSelector and locator.waitFor
 ✅ Use locator.waitFor() always in modern Playwright code
