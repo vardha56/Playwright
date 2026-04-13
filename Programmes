@@ -1,41 +1,3 @@
-1. Prog to count number of vowels
-function countVowels(str){
-	let count=0;
-	const vowels="aeiouAEIOU";
-
-for(const ch of str){
-	if(vowels.includes(ch)){
-	count++;
-	}
-}
-console.log("Number of vowels in str are "+count)
-}
-countVowels("vardha");
-
-2. To find Longest Word
-function longestWord(str){
-	let word=str.split(" ");
-	let longest="";
-	for(let i of word){
-	if(i.length>longest.length){
-	longest=i;
-}
-}
-	console.log("Logest word is "+longest);
-}
-longestWord("Honey sigh is a rapper");
-
-3. count how many times a letter is repeated
-function countCh(str,ch){
-	let count=0;
-	for(let i of str){
-	if(i==ch) count++;
-}
-console.log("Count of "+ch+" is "+count)
-}
-countCh("Yoyo is cool","o");
-
-
 Capegemini Interview programmes------------------------------------>
 1. print unique characters from str1 and str2
 function unique(str1,str2){
@@ -215,7 +177,51 @@ function match(str){
 }
 console.log(match("vardhaV"));
 
-14. 
+14. Mid number to print
+function middle(arr){
+    let mid= Math.floor(arr.length/2);
+    console.log(arr[mid]);
+}
+middle([2,4,6,8,10]); -------------------------------------------------------------------->
+
+
+1. Prog to count number of vowels
+function countVowels(str){
+	let count=0;
+	const vowels="aeiouAEIOU";
+
+for(const ch of str){
+	if(vowels.includes(ch)){
+	count++;
+	}
+}
+console.log("Number of vowels in str are "+count)
+}
+countVowels("vardha");
+
+2. To find Longest Word
+function longestWord(str){
+	let word=str.split(" ");
+	let longest="";
+	for(let i of word){
+	if(i.length>longest.length){
+	longest=i;
+}
+}
+	console.log("Logest word is "+longest);
+}
+longestWord("Honey sigh is a rapper");
+
+3. count how many times a letter is repeated
+function countCh(str,ch){
+	let count=0;
+	for(let i of str){
+	if(i==ch) count++;
+}
+console.log("Count of "+ch+" is "+count)
+}
+countCh("Yoyo is cool","o");
+
 
 
 
