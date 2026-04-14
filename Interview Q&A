@@ -179,14 +179,12 @@ I use the Playwright’s storage state to save authenticated sessions and reuse 
 getByRole, getByText, getByTestId, instead of XPath.
 
 24. 11. Difference between page.waitForSelector and locator.waitFor
-✅ Use locator.waitFor() always in modern Playwright code
-It is more reliable, especially for React/Angular/Vue dynamic UIs.
-❌ Avoid page.waitForSelector() unless you have a very specific old-style use-case.
+page.waitForSelector() is an older method that returns an ElementHandle and waits only once, which can be unstable.
+locator.waitFor() is the modern approach, more reliable with auto-waiting, and is the recommended Playwright practice. 
 
 25.  12. How do you deal with flaky tests in Playwright
-I reduce flaky tests by using Playwright’s auto-waiting locators, proper wait states, retries, stable selectors,
-disabling animations, ensuring clean test data, and using trace/debug tools. 
-I avoid manual timeouts and ensure each test is independent and stable. 
+“I reduce flaky tests by using Playwright’s auto-waiting, stable locators, proper assertions, retries
+and ensuring each test is independent and stable”
 
 26.  13. How do you record and generate code using Playwright codegen
 To record and generate code in Playwright, I use the npx playwright codegen command. 
@@ -195,13 +193,11 @@ Codegen helps quickly bootstrap tests with reliable locators and built-in waits
 
 27.14. How do you handle file uploads and downloads
 File Uploads
-Cannot interact with OS file dialog
-Use setInputFiles() to directly attach files
+I Use setInputFiles() to directly attach files
 Supports single, multiple, and clearing uploads
 File Downloads
-Use page.waitForEvent("download")
-Then call download.path() OR download.saveAs()
-Works reliably with Playwright’s auto-wait and event handling
+I Use page.waitForEvent("download")
+to download and save files.
 
 28. 15. How do you run tests in parallel and when should you disable parallel mode
 Playwright runs tests in parallel by default using multiple workers.
