@@ -201,9 +201,9 @@ to download and save files.
 
 28. 15. How do you run tests in parallel and when should you disable parallel mode
 Playwright runs tests in parallel by default using multiple workers.
-You can control parallel execution using workers, fullyParallel, and test.describe.serial.
-You disable parallel mode when tests depend on shared data, modify the same backend state, 
-use the same user account, or when the test flow must run step-by-step without interference.
+You can control parallel execution using workers, you can configure the parallel mode using test.describe.configure({ mode: 'parallel' });
+Disable the parallel mode when tests share state, depend on execution order.
+Parallel execution should only be used when tests are fully independent and isolated.
 
 29. 17. How do you capture screenshots, videos, and traces for debugging
 1. On Test Failure (recommended)
@@ -236,12 +236,11 @@ use: {
     mode: 'on',
     size: { width: 1280, height: 720 }
   }
-I enable screenshots, videos, and traces using Playwright’s use configuration.
+I enable screenshots, videos, and traces using Playwright’s config file
 screenshot: "only-on-failure"
 video: "retain-on-failure"
 trace: "retain-on-failure"
 Playwright automatically stores these artifacts in the test results folder and shows them in the HTML report.
-Traces are especially useful because they contain logs, snapshots, timelines, network calls, and a step-by-step replay of the test.
 
 30.  18. How do you handle iframes and shadow DOM in Playwright
 To handle iframes, I use frameLocator() to target elements inside an iframe.
