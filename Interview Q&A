@@ -242,7 +242,7 @@ video: "retain-on-failure"
 trace: "retain-on-failure"
 Playwright automatically stores these artifacts in the test results folder and shows them in the HTML report.
 
-30.  18. How do you handle iframes and shadow DOM in Playwright
+30.  18. How do you handle iframes and shadow DOM in Playwright  -> need to check
 To handle iframes, I use frameLocator() to target elements inside an iframe.
 Example: page.frameLocator('#iframe').locator('#username').fill().
 For Shadow DOM, Playwright automatically pierces the shadow boundary, so normal locators work. If needed, I can use :shadow selector.
