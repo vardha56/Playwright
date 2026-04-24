@@ -307,10 +307,14 @@ Your test file becomes clean, and all logic stays inside the page class.
 37. 26. How do you read data from JSON or external files for data-driven tests
 
 38. How do you disable animations or reduce load for faster tests
-run test in headless mode and use prper waits for an element and still more if u google
+I disable animations by injecting global CSS to set all animations and transitions to none.
+await page.addStyleTag({
+  content: `* { transition: none !important; animation: none !important; }` ,
+Additionally, I use page.emulateMedia({ reducedMotion: 'reduce' }) so the app behaves as if the user prefers reduced motion.
 
 39. 29. How do you debug Playwright tests effectively
-To debug Playwright tests effectively, I usually run them in headed mode or use the --debug command to open the Playwright Inspector. I also insert page.pause() to stop execution and explore the DOM interactively.
+To debug Playwright tests effectively, I usually run them in headed mode or use the --debug command to open the Playwright Inspector. I also insert page.pause() to stop execution 
+and explore the DOM interactively.
 I use VS Code breakpoints for step-by-step debugging. When tests fail in CI, I rely on Playwright Tracing, screenshots, and videos.
 These tools help me understand locator issues, timeouts, network failures, and flakiness very quickly.
 
