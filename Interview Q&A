@@ -319,10 +319,17 @@ I use VS Code breakpoints for step-by-step debugging. When tests fail in CI, I r
 These tools help me understand locator issues, timeouts, network failures, and flakiness very quickly.
 
 40.30. Explain how you would build a scalable Playwright automation framework---------------> need to undestand still more
+I build a scalable Playwright framework using a modular folder structure, Page Object Model for reusability, fixtures for shared setup, and environment-based configs. 
+I ensure fast execution with parallel runs and CI/CD integration and improve stability with proper waits and retries.
 
-Build around POM + fixtures + small independent tests, optimize with storageState + worker fixtures for speed,
- protect reliability with locators and smart waits, and integrate with CI to produce artifacts (HTML, JUnit, traces). 
-Start small (smoke/regression) and iterate: measure runtimes, kill flakiness, and scale horizontally.
+CI/CD->
+“CI/CD integration means automating build, test, and deployment pipelines so that whenever code is pushed, Playwright tests run automatically and only stable code gets deployed.”
+
+“I integrate CI/CD using GitHub Actions where every push or PR triggers a pipeline. It installs dependencies, runs Playwright tests in parallel, and generates reports. 
+If tests pass, deployment continues; otherwise, it blocks the release. I also add retries, tagging, multi-browser execution, and notifications to make the pipeline robust and scalable.”
+
+To integrate CI/CD with GitHub Actions, I create a workflow YAML file that triggers on push and PR. It checks out the code, installs dependencies, runs Playwright tests, and uploads reports. 
+I also configure environments, parallel execution, and multi-browser testing. If tests pass, deployment proceeds; otherwise, the pipeline fails.
 
 41. what is auto waiting in palywright and how does it improve stability
 Auto-waiting is a built-in feature in Playwright that automatically waits for certain conditions before performing actions on web elements. 
