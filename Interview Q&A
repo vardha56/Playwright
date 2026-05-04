@@ -375,10 +375,12 @@ Retries in Playwright are configured using the retries option in the config file
 in CI pipelines for flexibility, while keeping default retries in config. CLI helps override behavior without changing code.
 
 49. how do u handle timeouts globaly or per tests
-Timeouts in Playwright can be configured globally in the config file, per test using test.setTimeout(), and per action or assertion through options.
+I manage timeouts globally in playwright.config.js for consistency, like test timeout and expect timeout. For slow scenarios, 
+I override at test or action level. I avoid hard waits and rely on Playwright’s auto-waiting to keep tests stable
 
 50. how do u parametrize tests in playwright
-Tests in Playwright are parameterized by looping through datasets, using fixtures, environment variables, or external files to run the same test with multiple inputs.
+Tests in Playwright are parameterized by looping through datasets, using fixtures, environment variables, or external files to 
+run the same test with multiple inputs.
 
 51. howcan u run playwright tests headed and headless
 Playwright tests run in headless mode by default. To run with UI, use --headed or set headless: false in the config file.
