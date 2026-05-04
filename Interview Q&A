@@ -364,6 +364,9 @@ and environment settings using options like workers, projects, use, and reporter
 Tests can be skipped using test.skip(), focused with test.only(), and selectively executed using tags combined with
  --grep and --grep-invert.
 
+npx playwright test --grep "login"
+npx playwright test --grep-invert "slow"
+
 47. how do u handle file uploads and dowloads 
 Playwright handles uploads using setInputFiles() and downloads using the download event, allowing validation and saving of files programmatically
 
