@@ -371,7 +371,8 @@ npx playwright test --grep-invert "slow"
 Playwright handles uploads using setInputFiles() and downloads using the download event, allowing validation and saving of files programmatically
 
 48. how do you setup retries for failes tests
-Retries in Playwright are configured using the retries option in the config file, per project, or via CLI with --retries, and are commonly enabled only in CI environments.
+Retries in Playwright are configured using the retries option in the config file, per project, or using the --retries in CLI mainly 
+in CI pipelines for flexibility, while keeping default retries in config. CLI helps override behavior without changing code.
 
 49. how do u handle timeouts globaly or per tests
 Timeouts in Playwright can be configured globally in the config file, per test using test.setTimeout(), and per action or assertion through options.
