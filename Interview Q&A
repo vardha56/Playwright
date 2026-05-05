@@ -410,12 +410,14 @@ Prevention includes using stable locators, auto-waiting, isolated contexts, retr
 
 57 how do u ensures scalibility and mantianibilty in large playwrightproject
 Scalability and maintainability in large Playwright projects are ensured using Page Object Model, fixtures, parameterized tests,
- modular utilities, centralized configs, stable locators, CI/CD integration, and proper reporting.
+ modular utilities, centralized configs .env, stable locators, CI/CD integration, and proper reporting.
+
+Parameterized tests are tests where the same test logic is executed multiple times with different sets of input data.
 
 58.  What strategies do you use to keep tests fast and maintainable as your app grows?------> vvery important
 To keep tests fast and maintainable, I use Page Object Model, helper functions, and fixtures to avoid repetitive code.
 I prefer API-based login to skip slow UI flows.
-I rely on reliable locators, auto-waiting, and avoid sleep.
+I rely on reliting,iable locators, auto-wa and avoid manual sleeps.
 Tests run in parallel, and network mocking reduces dependency on backend.
 I also disable animations, cache browser installs in CI, store traces/screenshots only on failure, and organize tests with a scalable folder structure.
 All this keeps the suite clean, fast, and stable as the app grows.
