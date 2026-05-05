@@ -416,11 +416,8 @@ Parameterized tests are tests where the same test logic is executed multiple tim
 
 58.  What strategies do you use to keep tests fast and maintainable as your app grows?------> vvery important
 To keep tests fast and maintainable, I use Page Object Model, helper functions, and fixtures to avoid repetitive code.
-I prefer API-based login to skip slow UI flows.
-I rely on reliting,iable locators, auto-wa and avoid manual sleeps.
-Tests run in parallel, and network mocking reduces dependency on backend.
-I also disable animations, cache browser installs in CI, store traces/screenshots only on failure, and organize tests with a scalable folder structure.
-All this keeps the suite clean, fast, and stable as the app grows.
+by making tests independent, reusable, and parallel-friendly, while optimizing execution 
+through smart waits, tagging and selective execution, and CI/CD strategies.
 
 59. How would you implement a resilient test framework on top of Playwright, using Page Object Model and modular helpers?
 Best Practices to Make Framework Fully Resilient
