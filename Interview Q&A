@@ -393,7 +393,13 @@ Reporting in Playwright is implemented using built-in reporters like HTML, JSON,
 and enriched with screenshots, videos, and trace support.
 
 54. how can u handle parallel execution
-Playwright handles parallel execution using worker processes, controlled via workers, test.describe.parallel(), and project configuration.
+“In Playwright, parallel execution is handled using built-in workers, which allow tests to run simultaneously across multiple browser instances.”
+
+-> When to disable parallel execution
+I switch to serial mode when: 
+Tests depend on each other
+There’s shared state (like a single user session)
+External systems can’t handle concurrent requests.
 
 55. how do you debug failure testcases effciently
 I debug failures in Playwright using Trace Viewer, headed runs, debug mode, screenshots, and video recordings to quickly identify the root cause.
