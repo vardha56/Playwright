@@ -386,8 +386,7 @@ run the same test with multiple inputs.
 Playwright tests run in headless mode by default. To run with UI, use --headed or set headless: false in the config file.
 
 52. how do u use environmnet vairables with diferenet  test enviernomnets
-Different environments in Playwright are handled using environment variables loaded via .env files and dotenv, 
-allowing the same test suite to run across DEV, QA, and PROD.
+Different environments in Playwright are handled using environment variables loaded via seperate .env files for eacxh test enviernomnets like DEV, QA, and PROD.
 
 53. how do u implement reporting inplaywright
 Reporting in Playwright is implemented using built-in reporters like HTML, JSON, and JUnit, configured in playwright.config.ts, 
