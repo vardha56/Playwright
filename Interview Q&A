@@ -424,14 +424,11 @@ By Using POM to store all class objects of each pages
 ✔ By Using data-driven approach
 Store all test data in JSON or YAML.
 ✔ By Using environment-based configs
-dev.qa.prod separation.
+creating seperate configs for diff environment like dev.qa.prod 
 ✔ By Using CI/CD integration
-Run tests in GitHub Actions, Jenkins, Azure DevOps.
-✔ Add parallelism
-Run tests in multiple workers.
-✔ Keep pages clean
+Running tests in GitHub Actions, Jenkins, Azure DevOps.
+Running tests in multiple workers.
 No unnecessary logic in POM.
-✔ Keep helpers generic
 Helpers must not depend on specific page logic.
 
 60. What locator strategies do you use for complex elements, like regex, ARIA roles, or nested selectors?
