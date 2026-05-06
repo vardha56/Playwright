@@ -419,14 +419,13 @@ To keep tests fast and maintainable, I use Page Object Model, helper functions, 
 by making tests independent, reusable, and parallel-friendly, while optimizing execution 
 through smart waits, tagging and selective execution, and CI/CD strategies.
 
-59. How would you implement a resilient test framework on top of Playwright, using Page Object Model and modular helpers?
-Best Practices to Make Framework Fully Resilient
-Use POM to store all class objects of each pages
-✔ Use data-driven approach
+59. How would you implement a resilient test framework on top of Playwright, using Page Object Model and modular helpers? Imp
+By Using POM to store all class objects of each pages
+✔ By Using data-driven approach
 Store all test data in JSON or YAML.
-✔ Use environment-based configs
+✔ By Using environment-based configs
 dev.qa.prod separation.
-✔ Use CI/CD integration
+✔ By Using CI/CD integration
 Run tests in GitHub Actions, Jenkins, Azure DevOps.
 ✔ Add parallelism
 Run tests in multiple workers.
