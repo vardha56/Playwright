@@ -459,21 +459,23 @@ retry-based assertions and I also prefer stable locators using data-testid attri
 When I need more control, I use explicit waits like waitForSelector, locator.waitFor(), or waitForResponse to wait for conditions like visibility, navigation, or API completion.”
 
 65.How do you perform mouse and keyboard actions?
+In Playwright, mouse and keyboard actions are performed using built-in APIs like click, hover, dragAndDrop, and keyboard.press and by using Mouse Coordinates.
+
 await page.mouse.move(100, 200);
 await page.mouse.click(100, 200);
-
 await page.keyboard.type('Hello Playwright');
 await page.keyboard.press('Enter');
 
 66.How do you wait for an element in Playwright?
+By using the auto wait or exlicit waits like locator.waitFor(), waitForSelector or by retry-based assertions.
 await page.waitForSelector('#username');
  
 67. How do you run a specific test file or test case? 
-npx playwright test tests/login.spec.js  or use test.only in the testcase next to test
+By using the specific test file name or using test.only for a specific test.
+npx playwright test tests/login.spec.js
 
 68. How do you handle slow-loading elements?
-Use explicit timeouts or waitForSelector.
-await page.waitForSelector('#dashboard', { timeout: 10000 });
+By using the auto wait or exlicit waits like locator.waitFor(), waitForSelector or by retry-based assertions.
 
 69. How do you run tests in multiple browsers?
 projects: [
@@ -483,28 +485,30 @@ projects: [
 ]
 
 70. How do you click an element that is hidden or not visible?
-Use force: true but only if necessary.
+By Using force: true we can click an element that is hidden but only in unavoidable cases where actionability checks needs to be bypassed.
 await page.click('#hiddenBtn', { force: true });
 
 71. Login page redirects to dashboard only sometimes — how do you stabilize the test?
-Use assertions
-Use waitForLoadState("networkidle")
-Use locator-based waits
-await page.waitForLoadState('networkidle');
-await expect(page.locator('#dashboard')).toBeVisible();
+By Using assertions like waiting for relible dashboard: expecting the page to be visible, using retries, waiting for API responses.
+By Using await page.waitForLoadState('networkidle');
+By Using await expect(page.locator('#dashboard')).toBeVisible();
 
 72. How do you skip or tag tests?
-test.skip('not ready');
-test('smoke test', { tag: '@smoke' }, async () => {});
+In Playwright, I skip tests using test.skip() and organize tests using tags like @smoke or @regression, 
+which can be filtered with --grep and --grep-invert during execution.
+
+By using test.skip('not ready');
+By using test('smoke test', { tag: '@smoke' }, async () => {});
 
 73. What is expect.soft() in Playwright?
-Soft assertions allow the test to continue even if an expectation fails.
+Soft assertions allow the test to continue even if an expectation gets fail.
 expect.soft(page.locator('#msg')).toHaveText('Success');
-At the end, Playwright still reports failures.
+At the end, Playwright still reports failure.
 
 74. What is the difference between beforeEach and beforeAll in Playwright?
-beforeEach: runs before each test → gives fresh browser/context
-beforeAll: runs once → shared context (not isolated)
+beforeEach: runs before every test which is in fresh browser/context used for isolated tests,
+beforeAll: runs only once before all tests which is used for shared context or not isolated.
+test.beforeEach(TC);
 
 75. How do you test web applications built with React/Angular/Vue?
 Use React locators like:
