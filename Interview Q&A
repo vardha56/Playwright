@@ -451,13 +451,12 @@ I identify if the failure was due to slow network responses, unstable locators, 
 This helps me reliably fix the root cause of the flakiness.”
 
 63.How do you handle dynamic UI elements that appear unpredictably, beyond the built‑in auto‑waiting?
-Even though Playwright auto-waits, dynamic UI requires additional techniques. I use explicit waits, locator.waitFor(), race conditions, polling with expect.poll, and API-syncing waits. 
-I also check optional elements using count(), add retry logic, and sync the UI with network events. 
-This ensures stability even when elements appear unpredictably.
+For unpredictable dynamic elements, I use additional strategies like waiting for specific element states like locator.waitFor(), waiting for API responses, 
+retry-based assertions and I also prefer stable locators using data-testid attributes and I avoid hardcoded waits because they create flakiness.
 
 64. implicit and explicit wait in playwright
-“Playwright does not support implicit waits like Selenium. Instead, it has built-in auto-waits for elements and actions. 
-When I need more control, I use explicit waits such as waitForSelector, locator.waitFor(), or waitForResponse to wait for conditions like visibility, navigation, or API completion.”
+“Playwright does not support implicit waits like Selenium. Instead, it has built-in auto-waiting for elements and actions. 
+When I need more control, I use explicit waits like waitForSelector, locator.waitFor(), or waitForResponse to wait for conditions like visibility, navigation, or API completion.”
 
 65.How do you perform mouse and keyboard actions?
 await page.mouse.move(100, 200);
