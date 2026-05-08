@@ -516,36 +516,33 @@ await page.getByRole('button', { name: 'Submit' }).click();
 Playwright uses accessibility locators → avoids unstable CSS selectors.
 
 76. How do you handle web elements that change IDs dynamically?-------->important
-Use stable selectors:
-role based
-text based
-nth element
-CSS structure
-await page.getByRole('button', { name: 'Login' }).click();
+When element IDs change dynamically, I avoid exact ID selectors and use stable locators like data-testid, using playwright's builtin locators like
+get by roles, text-based locators, or partial attribute matching to make tests more reliable and maintainable.
 
 77. What is the test isolation model in Playwright?
-Each test gets:
-a new BrowserContext
-its own cookies/session
-independent storage
-This ensures cleaner and more reliable tests.
+Playwright’s test isolation model ensures that each test runs in a fresh browser context with separate cookies, storage, and session data, 
+preventing shared state and making tests reliable and parallel-friendly.
 
 78.How do you test uploading multiple files?
-await page.setInputFiles('#upload', [
-  'file1.png',
-  'file2.pdf'
-]);
-Eg: await page.locator("hhhh").setInputFiles("\\path in doubleforwrd slash")
+“In Playwright, multiple files can be uploaded using setInputFiles() by passing an array of file paths to the file input element.”
+await page.setInputFiles(
+  'input[type="file"]',
+  ['file1.pdf', 'file2.png']
+);
 
 79. How do you test if an element does NOT exist?
+To verify an element does not exist, I use assertions like not.toBeVisible() for hidden elements or 
+toHaveCount(0) to confirm the element is completely absent from the DOM.”
 await expect(page.locator('#error')).toHaveCount(0);
 
 80. What is Web-First Assertions?
-Assertions retry automatically until timeout.
+Web-first assertions in Playwright are smart retry-based assertions which automatically wait for expected UI conditions, 
+making tests more stable for dynamic web applications.”
 await expect(page.locator('#success')).toBeVisible();
-No need for waitForSelector.
 
 81. How do you open developer tools in Playwright?
+In Playwright, developer tools can be opened by making devtools: true which launches the browser with headed mode and 
+Playwright Inspector is commonly used for debugging test execution.”
 Use debug mode:
 npx playwright test --debug
 Stops at breakpoints, allows stepping through test.
@@ -560,6 +557,8 @@ nth match
 await page.getByRole('button', { name: 'Submit' }).click();
 
 83.How do you implement retries for flaky tests?
+I implement retries in Playwright using the built-in retries configuration, enabling retries only in CI, 
+and also capturing traces on retry to debug flaky tests.
 playwright.config.js:
 retries: process.env.CI ? 2 : 0
 
@@ -574,9 +573,13 @@ Animations (use force: true or disable)
 Enable tracing + video to debug.
 
 85.How do you run tests sequentially?
+We can run tests sequentially By configuring serial mode in config file or by setting worker:1 which ensures tests 
+execute one after another instead of in parallel.
 npx playwright test --workers=1
 
 86. How do you read data from Excel/CSV in Playwright?'
+“In Playwright, Excel and CSV data are typically read using Node.js libraries like xlsx and csv-parser, 
+and the extracted data is used for parameterized or data-driven testing.”
 const XLSX = require("xlsx");
 
 87. What is the difference between locator.click() and page.click()?
@@ -589,10 +592,8 @@ Deprecated	                Recommended
 Playwright doesn't support folder upload — must compress before upload.
 
 89.How do you bypass a CAPTCHA in tests?
-You don't automate CAPTCHA — you:
-Use test bypass key
-Disable CAPTCHA in test environment
-Mock API
+“In automation testing, I usually bypass CAPTCHA by disabling it in test environments,
+or mocking CAPTCHA verification APIs instead of trying to solve the CAPTCHA directly.”
 
 90. What is the difference between strict locators and non-strict?
 Strict locator only allows one unique element.
